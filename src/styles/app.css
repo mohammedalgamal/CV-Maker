@@ -52,11 +52,17 @@ table {
   border-spacing: 0;
 }
 
-body {
-  background-color: #fcfffb;
+.root, .App {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.App {
+  background-color: #ecf6e9;
   display: flex;
   flex-direction: column;
 }
+
 body button,
 body input[type=submit],
 body input[type=reset] {
@@ -67,4 +73,4 @@ body input[type=reset] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
-}/*# sourceMappingURL=app.css.map */
+}/*# sourceMappingURL=App.css.map */

@@ -6,9 +6,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: clamp(0.75rem, 3vw, 1.5rem);
+  padding: clamp(0.4rem, 1.5vw, 0.6rem);
   background-color: #1b494b;
   color: white;
   font-family: logo-font;
-  font-size: clamp(1.5rem, 6.5vw, 3.5rem);
+  font-size: clamp(1.5rem, 6.5vw, 3rem);
 }/*# sourceMappingURL=Header.css.map */
