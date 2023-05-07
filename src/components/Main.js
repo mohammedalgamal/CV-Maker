@@ -17,13 +17,21 @@ export default class Main extends Component {
             description: "",
             experiences: [{
                 id: uniqid(),
-                position: "a",
-                company: "b", 
-                city: "c",
-                startDate: "d",
-                endDate: "e",
+                position: "",
+                company: "", 
+                city: "",
+                startDate: "",
+                endDate: "",
             }],
-            educations: [],
+            educations: [{
+                id: uniqid(),
+                university: "",
+                degree: "",
+                city: "",
+                subject: "",
+                startDate: "",
+                endDate: "",
+            }],
         };
     }
 
@@ -65,6 +73,39 @@ export default class Main extends Component {
             })
         });
     };
+
+    addEducationObject = () => {
+        this.setState({
+            educations: this.state.educations.concat({
+                id: uniqid(),
+                university: "",
+                degree: "",
+                city: "",
+                subject: "",
+                startDate: "",
+                endDate: "",
+            })
+        });
+    };
+
+    deleteEducationObject = (id) => {
+        this.setState({
+            educations: this.state.educations.filter(education => education.id !== id)
+        })
+    }
+
+    handleEducationChange = (e, id, data) => {
+        this.setState({
+            educations: this.state.educations.map(education => {
+                if (education.id === id) {
+                    education[data] = e.target.value;
+                    return education;
+                };
+
+                return education;
+            })
+        });
+    };
     
     render() {
         const { firstName, lastName, jobTitle,
@@ -74,9 +115,15 @@ export default class Main extends Component {
         const experiencesUtils = [experiences, this.addExperienceObject,
              this.handleExperienceChange, this.deleteExperienceObject];
 
+        const educationsUtils = [educations, this.addEducationObject,
+             this.handleEducationChange, this.deleteEducationObject];
+
         return (
             <div className="Main">
-                <Data experiencesUtils = {experiencesUtils} changeData = {this.changeData}></Data>
+                <Data experiencesUtils = {experiencesUtils}
+                 educationsUtils = {educationsUtils}
+                 changeData = {this.changeData}
+                 ></Data>
                 <CV 
                 firstName = {firstName} 
                 lastName = {lastName} 

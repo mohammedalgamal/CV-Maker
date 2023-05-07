@@ -12,13 +12,16 @@ export default class CV extends Component {
               description, experiences, educations } = this.props;
 
         return (
-            <div>
+            <div className="CV">
                 {firstName}, {lastName}, {jobTitle},
-                {address}, {phoneNumber}, {email}, {description},
-                {educations}
+                {address}, {phoneNumber}, {email}, {description}
 
                 {experiences.map(experience => {
                     return ([experience.id, experience.position, experience.company, experience.city, experience.startDate, experience.endDate]);
+                })}
+
+                {educations.map(education => {
+                    return ([education.id, education.university, education.city, education.degree, education.subject, education.startDate, education.endDate]);
                 })}
             </div>
         )
