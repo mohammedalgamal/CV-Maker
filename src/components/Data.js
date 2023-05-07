@@ -9,31 +9,32 @@ export default class Data extends Component {
     };
 
     render() {
+        const generalData = this.props.generalData;
         const experiencesUtils = this.props.experiencesUtils;
         const educationsUtils = this.props.educationsUtils;
         
         return (
             <div className="Data">
                 <div className="General">
-                    <input type="text" placeholder="First name" 
+                    <input type="text" placeholder="First name" value={generalData[0]}
                     onChange={(e) => {this.props.changeData(e, "firstName")}}></input>
 
-                    <input type="text" placeholder="Last name" 
+                    <input type="text" placeholder="Last name" value={generalData[1]}
                     onChange={(e) => {this.props.changeData(e, "lastName")}}></input>
 
-                    <input type="text" placeholder="Job title" 
+                    <input type="text" placeholder="Job title" value={generalData[2]}
                     onChange={(e) => {this.props.changeData(e, "jobTitle")}}></input>
 
-                    <input type="text" placeholder="Address"
+                    <input type="text" placeholder="Address" value={generalData[3]}
                     onChange={(e) => {this.props.changeData(e, "address")}}></input>
 
-                    <input type="number" placeholder="Phone number"
+                    <input type="number" placeholder="Phone number" value={generalData[4]}
                     onChange={(e) => {this.props.changeData(e, "phoneNumber")}}></input>
 
-                    <input type="email" placeholder="Email"
+                    <input type="email" placeholder="Email" value={generalData[5]}
                     onChange={(e) => {this.props.changeData(e, "email")}}></input>
 
-                    <textarea placeholder="Description"
+                    <textarea placeholder="Description" value={generalData[6]}
                     onChange={(e) => {this.props.changeData(e, "description")}}></textarea>
                 </div>
 
@@ -57,6 +58,12 @@ export default class Data extends Component {
                         educationsUtils[1]()}}>Add education</button>
                 </div>
 
+                <div className="Buttons">
+                    <button>Generate CV as PDF</button>
+                    <button onClick={() => {
+                        this.props.handleResetButton();
+                    }}>Reset</button>
+                </div>
             </div>
         )
     }

@@ -106,12 +106,44 @@ export default class Main extends Component {
             })
         });
     };
+
+    handleResetButton = () => {
+        this.setState({
+            firstName: "",
+            lastName: "",
+            jobTitle: "",
+            address: "",
+            phoneNumber: "",
+            email: "",
+            description: "",
+            experiences: [{
+                id: uniqid(),
+                position: "",
+                company: "", 
+                city: "",
+                startDate: "",
+                endDate: "",
+            }],
+            educations: [{
+                id: uniqid(),
+                university: "",
+                degree: "",
+                city: "",
+                subject: "",
+                startDate: "",
+                endDate: "",
+            }],
+        });
+    };
     
     render() {
         const { firstName, lastName, jobTitle,
              address, phoneNumber, email,
               description, experiences, educations } = this.state;
 
+        const generalData = [firstName, lastName, jobTitle,
+             address, phoneNumber, email, description];
+            
         const experiencesUtils = [experiences, this.addExperienceObject,
              this.handleExperienceChange, this.deleteExperienceObject];
 
@@ -120,9 +152,9 @@ export default class Main extends Component {
 
         return (
             <div className="Main">
-                <Data experiencesUtils = {experiencesUtils}
-                 educationsUtils = {educationsUtils}
-                 changeData = {this.changeData}
+                <Data generalData = {generalData}
+                experiencesUtils = {experiencesUtils} educationsUtils = {educationsUtils}
+                 changeData = {this.changeData} handleResetButton = {this.handleResetButton}
                  ></Data>
                 <CV 
                 firstName = {firstName} 
