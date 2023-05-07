@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Data from "./Data";
 import CV from "./CV";
+import uniqid from "uniqid";
 
 export default class Main extends Component {
     constructor(props) {
@@ -14,7 +15,14 @@ export default class Main extends Component {
             phoneNumber: "",
             email: "",
             description: "",
-            experiences: [],
+            experiences: [{
+                id: uniqid(),
+                position: "a",
+                company: "b", 
+                city: "c",
+                startDate: "d",
+                endDate: "e",
+            }],
             educations: [],
         };
     }
@@ -23,16 +31,52 @@ export default class Main extends Component {
 
         this.setState({
             [data]: e.target.value
+        });
+    };
+
+    addExperienceObject = () => {
+        this.setState({
+            experiences: this.state.experiences.concat({
+                id: uniqid(),
+                position: "",
+                company: "", 
+                city: "",
+                startDate: "",
+                endDate: "",
+            })
+        });
+    };
+
+    deleteExperienceObject = (id) => {
+        this.setState({
+            experiences: this.state.experiences.filter(experience => experience.id !== id)
         })
     }
+
+    handleExperienceChange = (e, id, data) => {
+        this.setState({
+            experiences: this.state.experiences.map(experience => {
+                if (experience.id === id) {
+                    experience[data] = e.target.value;
+                    return experience;
+                };
+
+                return experience;
+            })
+        });
+    };
     
     render() {
         const { firstName, lastName, jobTitle,
              address, phoneNumber, email,
               description, experiences, educations } = this.state;
+
+        const experiencesUtils = [experiences, this.addExperienceObject,
+             this.handleExperienceChange, this.deleteExperienceObject];
+
         return (
             <div className="Main">
-                <Data changeData = {this.changeData}></Data>
+                <Data experiencesUtils = {experiencesUtils} changeData = {this.changeData}></Data>
                 <CV 
                 firstName = {firstName} 
                 lastName = {lastName} 
