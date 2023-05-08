@@ -33,7 +33,7 @@ export default class Main extends Component {
                 endDate: "",
             }],
         };
-    }
+    };
 
     changeData = (e, data) => {
 
@@ -59,7 +59,7 @@ export default class Main extends Component {
         this.setState({
             experiences: this.state.experiences.filter(experience => experience.id !== id)
         })
-    }
+    };
 
     handleExperienceChange = (e, id, data) => {
         this.setState({
@@ -92,7 +92,7 @@ export default class Main extends Component {
         this.setState({
             educations: this.state.educations.filter(education => education.id !== id)
         })
-    }
+    };
 
     handleEducationChange = (e, id, data) => {
         this.setState({
@@ -105,6 +105,10 @@ export default class Main extends Component {
                 return education;
             })
         });
+    };
+
+    handlePDFButton = () => {
+        return "";
     };
 
     handleResetButton = () => {
@@ -152,9 +156,10 @@ export default class Main extends Component {
 
         return (
             <div className="Main">
-                <Data generalData = {generalData}
-                experiencesUtils = {experiencesUtils} educationsUtils = {educationsUtils}
-                 changeData = {this.changeData} handleResetButton = {this.handleResetButton}
+                <Data generalData = {generalData} experiencesUtils = {experiencesUtils} 
+                    educationsUtils = {educationsUtils} changeData = {this.changeData} 
+                    handleResetButton = {this.handleResetButton}
+                    handlePDFButton = {this.handlePDFButton}
                  ></Data>
                 <CV 
                 firstName = {firstName} 

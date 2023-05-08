@@ -13,10 +13,10 @@ export default class Experience extends Component {
                 <input type="text" placeholder="City" 
                 onChange={(e) => {this.props.handleExperienceChange(e, this.props.id, "city")}}></input>
 
-                <input type="date" placeholder="Start date"
+                <input type="text" placeholder="Start date"
                 onChange={(e) => {this.props.handleExperienceChange(e, this.props.id, "startDate")}}></input>
 
-                <input type="date" placeholder="End date"
+                <input type="text" placeholder="End date"
                 onChange={(e) => {this.props.handleExperienceChange(e, this.props.id, "endDate")}}></input>
 
                 <button onClick={() => {
