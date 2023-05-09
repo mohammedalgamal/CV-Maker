@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/CV-Maker/static/css/main.8f29d136.css",
+    "main.js": "/CV-Maker/static/js/main.e3eb7b18.js",
+    "static/media/QueensidesLight-ZVj3l.ttf": "/CV-Maker/static/media/QueensidesLight-ZVj3l.68fe009f356bda84eb93.ttf",
+    "index.html": "/CV-Maker/index.html",
+    "main.8f29d136.css.map": "/CV-Maker/static/css/main.8f29d136.css.map",
+    "main.e3eb7b18.js.map": "/CV-Maker/static/js/main.e3eb7b18.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f29d136.css",
+    "static/js/main.e3eb7b18.js"
+  ]
+}
