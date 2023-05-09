@@ -5,175 +5,212 @@ import uniqid from "uniqid";
 import "../styles/Main.css";
 
 export default class Main extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            firstName: "",
-            lastName: "",
-            jobTitle: "",
-            address: "",
-            phoneNumber: "",
-            email: "",
-            description: "",
-            experiences: [{
-                id: uniqid(),
-                position: "",
-                company: "", 
-                city: "",
-                startDate: "",
-                endDate: "",
-            }],
-            educations: [{
-                id: uniqid(),
-                university: "",
-                degree: "",
-                city: "",
-                subject: "",
-                startDate: "",
-                endDate: "",
-            }],
-        };
+    this.state = {
+      firstName: "",
+      lastName: "",
+      jobTitle: "",
+      address: "",
+      phoneNumber: "",
+      email: "",
+      description: "",
+      experiences: [
+        {
+          id: uniqid(),
+          position: "",
+          company: "",
+          city: "",
+          startDate: "",
+          endDate: "",
+        },
+      ],
+      educations: [
+        {
+          id: uniqid(),
+          university: "",
+          degree: "",
+          city: "",
+          subject: "",
+          startDate: "",
+          endDate: "",
+        },
+      ],
     };
+  }
 
-    changeData = (e, data) => {
+  changeData = (e, data) => {
+    this.setState({
+      [data]: e.target.value,
+    });
+  };
 
-        this.setState({
-            [data]: e.target.value
-        });
-    };
+  addExperienceObject = () => {
+    this.setState({
+      experiences: this.state.experiences.concat({
+        id: uniqid(),
+        position: "",
+        company: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+      }),
+    });
+  };
 
-    addExperienceObject = () => {
-        this.setState({
-            experiences: this.state.experiences.concat({
-                id: uniqid(),
-                position: "",
-                company: "", 
-                city: "",
-                startDate: "",
-                endDate: "",
-            })
-        });
-    };
+  deleteExperienceObject = (id) => {
+    this.setState({
+      experiences: this.state.experiences.filter(
+        (experience) => experience.id !== id
+      ),
+    });
+  };
 
-    deleteExperienceObject = (id) => {
-        this.setState({
-            experiences: this.state.experiences.filter(experience => experience.id !== id)
-        })
-    };
+  handleExperienceChange = (e, id, data) => {
+    this.setState({
+      experiences: this.state.experiences.map((experience) => {
+        if (experience.id === id) {
+          experience[data] = e.target.value;
+          return experience;
+        }
 
-    handleExperienceChange = (e, id, data) => {
-        this.setState({
-            experiences: this.state.experiences.map(experience => {
-                if (experience.id === id) {
-                    experience[data] = e.target.value;
-                    return experience;
-                };
+        return experience;
+      }),
+    });
+  };
 
-                return experience;
-            })
-        });
-    };
+  addEducationObject = () => {
+    this.setState({
+      educations: this.state.educations.concat({
+        id: uniqid(),
+        university: "",
+        degree: "",
+        city: "",
+        subject: "",
+        startDate: "",
+        endDate: "",
+      }),
+    });
+  };
 
-    addEducationObject = () => {
-        this.setState({
-            educations: this.state.educations.concat({
-                id: uniqid(),
-                university: "",
-                degree: "",
-                city: "",
-                subject: "",
-                startDate: "",
-                endDate: "",
-            })
-        });
-    };
+  deleteEducationObject = (id) => {
+    this.setState({
+      educations: this.state.educations.filter(
+        (education) => education.id !== id
+      ),
+    });
+  };
 
-    deleteEducationObject = (id) => {
-        this.setState({
-            educations: this.state.educations.filter(education => education.id !== id)
-        })
-    };
+  handleEducationChange = (e, id, data) => {
+    this.setState({
+      educations: this.state.educations.map((education) => {
+        if (education.id === id) {
+          education[data] = e.target.value;
+          return education;
+        }
 
-    handleEducationChange = (e, id, data) => {
-        this.setState({
-            educations: this.state.educations.map(education => {
-                if (education.id === id) {
-                    education[data] = e.target.value;
-                    return education;
-                };
+        return education;
+      }),
+    });
+  };
 
-                return education;
-            })
-        });
-    };
+  handlePDFButton = () => {
+    return "";
+  };
 
-    handlePDFButton = () => {
-        return "";
-    };
+  handleResetButton = () => {
+    this.setState({
+      firstName: "",
+      lastName: "",
+      jobTitle: "",
+      address: "",
+      phoneNumber: "",
+      email: "",
+      description: "",
+      experiences: [
+        {
+          id: uniqid(),
+          position: "",
+          company: "",
+          city: "",
+          startDate: "",
+          endDate: "",
+        },
+      ],
+      educations: [
+        {
+          id: uniqid(),
+          university: "",
+          degree: "",
+          city: "",
+          subject: "",
+          startDate: "",
+          endDate: "",
+        },
+      ],
+    });
+  };
 
-    handleResetButton = () => {
-        this.setState({
-            firstName: "",
-            lastName: "",
-            jobTitle: "",
-            address: "",
-            phoneNumber: "",
-            email: "",
-            description: "",
-            experiences: [{
-                id: uniqid(),
-                position: "",
-                company: "", 
-                city: "",
-                startDate: "",
-                endDate: "",
-            }],
-            educations: [{
-                id: uniqid(),
-                university: "",
-                degree: "",
-                city: "",
-                subject: "",
-                startDate: "",
-                endDate: "",
-            }],
-        });
-    };
-    
-    render() {
-        const { firstName, lastName, jobTitle,
-             address, phoneNumber, email,
-              description, experiences, educations } = this.state;
+  render() {
+    const {
+      firstName,
+      lastName,
+      jobTitle,
+      address,
+      phoneNumber,
+      email,
+      description,
+      experiences,
+      educations,
+    } = this.state;
 
-        const generalData = [firstName, lastName, jobTitle,
-             address, phoneNumber, email, description];
-            
-        const experiencesUtils = [experiences, this.addExperienceObject,
-             this.handleExperienceChange, this.deleteExperienceObject];
+    const generalData = [
+      firstName,
+      lastName,
+      jobTitle,
+      address,
+      phoneNumber,
+      email,
+      description,
+    ];
 
-        const educationsUtils = [educations, this.addEducationObject,
-             this.handleEducationChange, this.deleteEducationObject];
+    const experiencesUtils = [
+      experiences,
+      this.addExperienceObject,
+      this.handleExperienceChange,
+      this.deleteExperienceObject,
+    ];
 
-        return (
-            <div className="Main">
-                <Data generalData = {generalData} experiencesUtils = {experiencesUtils} 
-                    educationsUtils = {educationsUtils} changeData = {this.changeData} 
-                    handleResetButton = {this.handleResetButton}
-                    handlePDFButton = {this.handlePDFButton}
-                 ></Data>
-                <CV 
-                firstName = {firstName} 
-                lastName = {lastName} 
-                jobTitle = {jobTitle}
-                address = {address}
-                phoneNumber = {phoneNumber}
-                email = {email}
-                description = {description}
-                experiences = {experiences}
-                educations = {educations}
-                ></CV>
-            </div>
-        )
-    }
+    const educationsUtils = [
+      educations,
+      this.addEducationObject,
+      this.handleEducationChange,
+      this.deleteEducationObject,
+    ];
+
+    return (
+      <div className="Main">
+        <Data
+          generalData={generalData}
+          experiencesUtils={experiencesUtils}
+          educationsUtils={educationsUtils}
+          changeData={this.changeData}
+          handleResetButton={this.handleResetButton}
+          handlePDFButton={this.handlePDFButton}
+        ></Data>
+        <CV
+          firstName={firstName}
+          lastName={lastName}
+          jobTitle={jobTitle}
+          address={address}
+          phoneNumber={phoneNumber}
+          email={email}
+          description={description}
+          experiences={experiences}
+          educations={educations}
+        ></CV>
+      </div>
+    );
+  }
 }

@@ -35,19 +35,21 @@
   -webkit-appearance: none;
   margin: 0;
 }
-.Main .Data input[type=number] {
+.Main .Data input[type="number"] {
   -webkit-appearance: textfield;
-          appearance: textfield;
+  appearance: textfield;
   -moz-appearance: textfield;
 }
-.Main .Data input, .Main .Data textarea {
+.Main .Data input,
+.Main .Data textarea {
   padding: 5px;
   padding-left: 8px;
   border-radius: 5px;
   border: none;
   resize: none;
 }
-.Main .Data input:focus, .Main .Data textarea:focus {
+.Main .Data input:focus,
+.Main .Data textarea:focus {
   outline: none;
   box-shadow: 0 0 0 1px gray;
 }
@@ -117,7 +119,7 @@
   padding-right: clamp(1.5rem, 6vw, 3rem);
 }
 .Main .CV .upper {
-  grid-column: span 2/auto;
+  grid-column: span 2 / auto;
   background-color: #333e50;
   color: white;
 }
@@ -154,4 +156,4 @@
 }
 .Main .CV .extra .myDiv {
   margin-bottom: clamp(0.5rem, 3vw, 1.1rem);
-}/*# sourceMappingURL=Main.css.map */
+} /*# sourceMappingURL=Main.css.map */

@@ -1,187 +1,186 @@
 @import "./config";
 
 .Main {
-    max-width: 1800px;
-    padding: clamp(0.5rem, 4vw, 3rem) clamp(1rem, 6vw, 8rem);
-    margin: 0 auto 2rem;
+  max-width: 1800px;
+  padding: clamp(0.5rem, 4vw, 3rem) clamp(1rem, 6vw, 8rem);
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+  @media screen and (orientation: portrait) {
+    grid-template: 1fr min-content / 100%;
+    margin: 0 0 2rem;
+  }
+  gap: 4rem;
+  justify-content: space-between;
+
+  .Data {
+    background-color: $second-color;
+    padding: clamp(0.8rem, 6vw, 1.4rem);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    min-width: 30vw;
+    gap: 26px;
+
+    .myBox {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+
+    input,
+    textarea {
+      padding: 5px;
+      padding-left: 8px;
+      border-radius: 5px;
+      border: none;
+      resize: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px gray;
+    }
+
+    .generalBtn {
+      background-color: rgb(32, 32, 32);
+      color: white;
+      border-radius: 8px;
+      padding: 7px;
+      font-weight: 500;
+    }
+
+    .PDFBtn {
+      background-color: rgb(20, 152, 20);
+    }
+
+    .resetBtn {
+      background-color: rgb(192, 29, 29);
+    }
+
+    .deleteBtn {
+      background-color: rgb(217, 82, 82);
+    }
+
+    button:hover {
+      filter: brightness(50%);
+    }
+
+    .title {
+      margin-bottom: 10px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+
+  .CV > * {
+    padding: clamp(0.5rem, 4vw, 1rem);
+  }
+
+  .CV {
     display: grid;
-    grid-template: 1fr / 1fr 1fr;
-    @media screen and (orientation:portrait) {
-        grid-template: 1fr min-content / 100%;
-        margin: 0 0 2rem;
+    width: clamp(42mm, 45vw, 210mm);
+    aspect-ratio: 210 / 297;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    @media screen and (orientation: portrait) {
+      width: 100%;
+      position: static;
     }
-    gap: 4rem;
-    justify-content: space-between;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 7fr;
+    position: sticky;
+    top: 10px;
 
-    .Data {
-        background-color: $second-color;
-        padding: clamp(0.8rem, 6vw, 1.4rem);
-        border-radius: 4px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        display: flex;
-        flex-direction: column;
-        min-width: 30vw;
-        gap: 26px;
-
-        .myBox {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-        }
-
-        /* Firefox */
-        input[type=number] {
-            appearance: textfield;
-            -moz-appearance: textfield;
-        }
-
-        input, textarea {
-            padding: 5px;
-            padding-left: 8px;
-            border-radius: 5px;
-            border: none;
-            resize: none;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            box-shadow: 0 0 0 1px gray;
-        }
-
-        .generalBtn {
-            background-color: rgb(32, 32, 32);
-            color: white;
-            border-radius: 8px;
-            padding: 7px;
-            font-weight: 500;
-        }
-
-        .PDFBtn {
-            background-color: rgb(20, 152, 20);
-        }
-
-        .resetBtn {
-            background-color: rgb(192, 29, 29);
-        }
-
-        .deleteBtn {
-            background-color: rgb(217, 82, 82);
-        }
-
-        button:hover {
-            filter: brightness(50%);
-        }
-
-        .title {
-            margin-bottom: 10px;
-            font-weight: 500;
-            font-size: 18px;
-        }
+    p {
+      margin-bottom: 0;
     }
 
-    .CV > * {
-        padding: clamp(0.5rem, 4vw, 1rem);
+    .title {
+      border-bottom: 1px solid rgb(162, 162, 162);
+      color: #333e50;
+      font-size: clamp(0.2rem, 2.5vw, 1.1rem);
+      font-weight: 600;
+      margin-bottom: clamp(0.2rem, 1.2vw, 0.4rem);
     }
 
-    .CV {
-        display: grid;
-        width: clamp(42mm, 45vw, 210mm);
-        aspect-ratio: 210 / 297;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    .sideTitle {
+      font-size: clamp(0.2rem, 1.8vw, 1rem);
+      font-weight: 550;
+    }
 
-        @media screen and (orientation:portrait) {
-            width: 100%;
-            position: static;
-        }
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr 7fr;
-        position: sticky;
-        top: 10px;
+    .info {
+      font-size: clamp(0.2rem, 1.8vw, 1rem);
+    }
+
+    .arrayData {
+      display: flex;
+      justify-content: space-between;
+      padding-right: clamp(1.5rem, 6vw, 3rem);
+    }
+
+    .upper {
+      grid-column: span 2 / auto;
+      background-color: #333e50;
+      color: white;
+
+      .name {
+        font-size: clamp(1rem, 6vw, 2.3rem);
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+
+      .job {
+        font-size: clamp(0.6rem, 9vw, 1.2rem);
+        margin-bottom: 0;
+      }
+    }
+
+    .main {
+      background-color: rgb(233, 230, 230);
+
+      .myDiv {
+        margin-bottom: clamp(0.35rem, 2.5vw, 0.9rem);
+      }
+
+      .descriptionCv {
+        font-size: clamp(0.2rem, 1.8vw, 1rem);
+        font-style: italic;
 
         p {
-            margin-bottom: 0;
+          font-style: normal;
         }
+      }
 
-        .title {
-            border-bottom: 1px solid rgb(162, 162, 162);
-            color: #333e50;
-            font-size: clamp(0.2rem, 2.5vw, 1.1rem);
-            font-weight: 600;
-            margin-bottom: clamp(0.2rem, 1.2vw, 0.4rem);
-        }
-
-        .sideTitle {
-            font-size: clamp(0.2rem, 1.8vw, 1rem);
-            font-weight: 550;
-        }
-
-        .info {
-            font-size: clamp(0.2rem, 1.8vw, 1rem);
-        }
-
-        .arrayData {
-            display: flex;
-            justify-content: space-between;
-            padding-right: clamp(1.5rem, 6vw, 3rem);
-        }
-
-
-        .upper{
-            grid-column: span 2 / auto;
-            background-color: #333e50;
-            color: white;
-
-            .name {
-                font-size: clamp(1rem, 6vw, 2.3rem);
-                font-weight: 500;
-                margin-bottom: 0;
-            }
-
-            .job {
-                font-size: clamp(0.6rem, 9vw, 1.2rem);
-                margin-bottom: 0;
-            }
-        }
-        
-        .main {
-            background-color: rgb(233, 230, 230);
-
-            .myDiv {
-                margin-bottom: clamp(0.35rem, 2.5vw, 0.9rem);
-            }
-
-            .descriptionCv {
-                font-size: clamp(0.2rem, 1.8vw, 1rem);
-                font-style: italic;
-
-                p {
-                    font-style: normal;
-                }
-            }
-
-            .educationCV, 
-            .experienceCV {
-                display: flex;
-                gap: clamp(0.5rem, 3vw, 1.1rem);
-                flex-direction: column;
-            }
-        }
-
-        .extra {
-            background-color: rgb(192, 191, 191);
-
-            .myDiv {
-                margin-bottom: clamp(0.5rem, 3vw, 1.1rem);
-            }
-
-        }
-        
+      .educationCV,
+      .experienceCV {
+        display: flex;
+        gap: clamp(0.5rem, 3vw, 1.1rem);
+        flex-direction: column;
+      }
     }
+
+    .extra {
+      background-color: rgb(192, 191, 191);
+
+      .myDiv {
+        margin-bottom: clamp(0.5rem, 3vw, 1.1rem);
+      }
+    }
+  }
 }

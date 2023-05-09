@@ -1,17 +1,17 @@
 @import "./config";
 
 @font-face {
-    font-family: "logo-font";
-    src: url("../../public/QueensidesLight-ZVj3l.ttf");
-  }
+  font-family: "logo-font";
+  src: url("../../public/QueensidesLight-ZVj3l.ttf");
+}
 
 .Header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: clamp(0.4rem, 1.5vw, 0.6rem);
-    background-color: $main-color;
-    color: white;
-    font-family: logo-font;
-    font-size: clamp(1.5rem, 6.5vw, 3rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.4rem, 1.5vw, 0.6rem);
+  background-color: $main-color;
+  color: white;
+  font-family: logo-font;
+  font-size: clamp(1.5rem, 6.5vw, 3rem);
 }
