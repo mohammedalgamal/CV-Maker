@@ -16,7 +16,7 @@ export default class CV extends Component {
                 <div className="lower">
                     <div className="main">
                         
-                        <div className="description">
+                        <div className="descriptionCv">
                             <p className="title">Description</p>
                             {description}
                         </div>
@@ -27,15 +27,15 @@ export default class CV extends Component {
                             return (
                                 <div className="experienceDiv arrayData">
                                     <div className="left">
-                                        <div className="dates">
+                                        <div className="dates sideTitle">
                                             {experience.startDate} - {experience.endDate}
                                         </div>
                                     </div>
                                     <div className="right">
-                                        <div className="upper">
+                                        <div className="upper sideTitle">
                                             {experience.position}
                                         </div>
-                                        <div className="lower">
+                                        <div className="lower info">
                                             {experience.company}, {experience.city}
                                         </div>
                                     </div>
@@ -50,15 +50,15 @@ export default class CV extends Component {
                             return (                                
                                 <div className="educationDiv arrayData">
                                     <div className="left">
-                                        <div className="dates">
+                                        <div className="dates sideTitle">
                                             {education.startDate} - {education.endDate}
                                         </div>
                                     </div>
                                     <div className="right">
-                                        <div className="upper">
+                                        <div className="upper sideTitle">
                                             {education.university}, {education.city}
                                         </div>
-                                        <div className="lower">
+                                        <div className="lower info">
                                             Degree: {education.degree}
                                             <br></br>
                                             Subject: {education.subject}

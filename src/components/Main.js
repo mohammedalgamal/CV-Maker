@@ -2,6 +2,7 @@ import { Component } from "react";
 import Data from "./Data";
 import CV from "./CV";
 import uniqid from "uniqid";
+import "../styles/Main.css";
 
 export default class Main extends Component {
     constructor(props) {

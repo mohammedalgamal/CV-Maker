@@ -3,7 +3,7 @@ import { Component } from "react";
 export default class Experience extends Component {
     render() {
         return (
-            <div className="Experience">
+            <div className="Experience myBox">
                 <input type="text" placeholder="Position" 
                 onChange={(e) => {this.props.handleExperienceChange(e, this.props.id, "position")}}></input>
 
@@ -19,7 +19,7 @@ export default class Experience extends Component {
                 <input type="text" placeholder="End date"
                 onChange={(e) => {this.props.handleExperienceChange(e, this.props.id, "endDate")}}></input>
 
-                <button onClick={() => {
+                <button className = "generalBtn deleteBtn" onClick={() => {
                     this.props.deleteExperienceObject(this.props.id)
                 }}>Delete Experience</button>
             </div>

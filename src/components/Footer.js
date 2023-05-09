@@ -9,7 +9,7 @@ export default class Footer extends Component {
                 <div className = "text">
                     Copyright © mohammedalgamal 
                 </div>
-                <a href="https://github.com/mohammedalgamal/JS-Tic-Tac-Toe">
+                <a href="https://github.com/mohammedalgamal/CV-Maker">
                     <img alt="GitHub Logo" src={logo}></img>
                 </a>
             </div>

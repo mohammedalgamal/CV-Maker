@@ -1,0 +1,136 @@
+@import "./config";
+
+.Main {
+    max-width: 1800px;
+    padding: clamp(0.5rem, 4vw, 3rem) clamp(1rem, 6vw, 8rem);
+    margin: 0 auto 2rem;
+    display: flex;
+    @media screen and (orientation:portrait) {
+        flex-direction: column;
+        margin: 0 0 2rem;
+    }
+    gap: 4rem;
+    justify-content: space-between;
+
+    .Data {
+        background-color: $second-color;
+        padding: clamp(0.8rem, 6vw, 1.4rem);
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        flex-direction: column;
+        min-width: 33vw;
+        gap: 26px;
+
+        .myBox {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+
+        input, textarea {
+            padding: 5px;
+            padding-left: 8px;
+            border-radius: 5px;
+            border: none;
+            resize: none;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 1px gray;
+        }
+
+        .generalBtn {
+            background-color: rgb(32, 32, 32);
+            color: white;
+            border-radius: 8px;
+            padding: 7px;
+            font-weight: 500;
+        }
+
+        .PDFBtn {
+            background-color: rgb(20, 152, 20);
+        }
+
+        .resetBtn {
+            background-color: rgb(192, 29, 29);
+        }
+
+        .deleteBtn {
+            background-color: rgb(217, 82, 82);
+        }
+
+        button:hover {
+            filter: brightness(50%);
+        }
+
+        .title {
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 18px;
+        }
+    }
+
+    .CV {
+        .title {
+
+        }
+
+        .sideTitle {
+
+        }
+
+        .info {
+
+        }
+
+        .arrayData {
+
+        }
+
+
+        .upper{
+            .name {
+
+            }
+
+            .job {
+
+            }
+        }
+
+        .lower {
+            .main {
+                .descriptionCv {
+
+                }
+
+                .experienceCV {
+                    
+                }
+
+                .educationCV {
+
+                }
+            }
+
+            .extra {
+
+            }
+        }
+    }
+}

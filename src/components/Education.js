@@ -3,7 +3,7 @@ import { Component } from "react";
 export default class Education extends Component {
     render() {
         return (
-            <div className="Education">
+            <div className="Education myBox">
                 <input type="text" placeholder="University" 
                 onChange={(e) => {this.props.handleEducationChange(e, this.props.id, "university")}}></input>
 
@@ -22,7 +22,7 @@ export default class Education extends Component {
                 <input type="text" placeholder="End date"
                 onChange={(e) => {this.props.handleEducationChange(e, this.props.id, "endDate")}}></input>
 
-                <button onClick={() => {
+                <button className = "generalBtn deleteBtn" onClick={() => {
                     this.props.deleteEducationObject(this.props.id)
                 }}>Delete Education</button>
             </div>

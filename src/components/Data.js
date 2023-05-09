@@ -16,8 +16,8 @@ export default class Data extends Component {
         return (
             <div className="Data">
                 <div className="General">
-                    <p>Personal Information</p>
-                    <div className="personal">
+                    <p className="title">Personal Information</p>
+                    <div className="personal myBox">
                         <input type="text" placeholder="First name" value={generalData[0]}
                         onChange={(e) => {this.props.changeData(e, "firstName")}}></input>
 
@@ -42,38 +42,38 @@ export default class Data extends Component {
                 </div>
 
                 <div className = "Experiences">
-                    <p>Experience</p>
-                    <div className="ExperienceContent">
+                    <p className="title">Experience</p>
+                    <div className="ExperienceContent myBox">
                         {experiencesUtils[0].map(exp => {
                             return <Experience key = {exp.id} id = {exp.id}
                             handleExperienceChange = {experiencesUtils[2]}
                             deleteExperienceObject = {experiencesUtils[3]} />
                         })}
-                        <button className="addExperience" onClick={() => {
+                        <button className="addExperience generalBtn" onClick={() => {
                             experiencesUtils[1]()}}>Add experience</button>
                     </div>
                 </div>
 
                 <div className = "Educations">
-                    <p>Education</p>
-                    <div className="EducationContent">
+                    <p className="title">Education</p>
+                    <div className="EducationContent myBox">
                         {educationsUtils[0].map(exp => {
                             return <Education key = {exp.id} id = {exp.id}
                             handleEducationChange = {educationsUtils[2]}
                             deleteEducationObject = {educationsUtils[3]} />
                         })}
-                        <button className="addEducation" onClick={() => {
+                        <button className="addEducation generalBtn" onClick={() => {
                             educationsUtils[1]()}}>Add education</button>
                     </div>
 
                 </div>
 
-                <div className="Buttons">
-                    <button onClick={() => {
+                <div className="Buttons myBox">
+                    <button className="generalBtn PDFBtn" onClick={() => {
                         this.props.handlePDFButton();
                     }}>Generate CV as PDF</button>
 
-                    <button onClick={() => {
+                    <button className="generalBtn resetBtn" onClick={() => {
                         this.props.handleResetButton();
                     }}>Reset</button>
                 </div>

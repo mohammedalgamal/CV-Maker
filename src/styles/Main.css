@@ -1,0 +1,76 @@
+.Main {
+  max-width: 1800px;
+  padding: clamp(0.5rem, 4vw, 3rem) clamp(1rem, 6vw, 8rem);
+  margin: 0 auto 2rem;
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+}
+@media screen and (orientation: portrait) {
+  .Main {
+    flex-direction: column;
+    margin: 0 0 2rem;
+  }
+}
+.Main .Data {
+  background-color: #ebebeb;
+  padding: clamp(0.8rem, 6vw, 1.4rem);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  min-width: 33vw;
+  gap: 26px;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.Main .Data .myBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Main .Data input::-webkit-outer-spin-button,
+.Main .Data input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.Main .Data input[type=number] {
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  -moz-appearance: textfield;
+}
+.Main .Data input, .Main .Data textarea {
+  padding: 5px;
+  padding-left: 8px;
+  border-radius: 5px;
+  border: none;
+  resize: none;
+}
+.Main .Data input:focus, .Main .Data textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px gray;
+}
+.Main .Data .generalBtn {
+  background-color: rgb(32, 32, 32);
+  color: white;
+  border-radius: 8px;
+  padding: 7px;
+  font-weight: 500;
+}
+.Main .Data .PDFBtn {
+  background-color: rgb(20, 152, 20);
+}
+.Main .Data .resetBtn {
+  background-color: rgb(192, 29, 29);
+}
+.Main .Data .deleteBtn {
+  background-color: rgb(217, 82, 82);
+}
+.Main .Data button:hover {
+  filter: brightness(50%);
+}
+.Main .Data .title {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 18px;
+}/*# sourceMappingURL=Main.css.map */
