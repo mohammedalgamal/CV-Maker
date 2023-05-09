@@ -69,10 +69,6 @@ export default class Data extends Component {
                 </div>
 
                 <div className="Buttons myBox">
-                    <button className="generalBtn PDFBtn" onClick={() => {
-                        this.props.handlePDFButton();
-                    }}>Generate CV as PDF</button>
-
                     <button className="generalBtn resetBtn" onClick={() => {
                         this.props.handleResetButton();
                     }}>Reset</button>

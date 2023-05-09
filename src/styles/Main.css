@@ -2,13 +2,14 @@
   max-width: 1800px;
   padding: clamp(0.5rem, 4vw, 3rem) clamp(1rem, 6vw, 8rem);
   margin: 0 auto 2rem;
-  display: flex;
+  display: grid;
+  grid-template: 1fr/1fr 1fr;
   gap: 4rem;
   justify-content: space-between;
 }
 @media screen and (orientation: portrait) {
   .Main {
-    flex-direction: column;
+    grid-template: 1fr min-content/100%;
     margin: 0 0 2rem;
   }
 }
@@ -19,7 +20,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
-  min-width: 33vw;
+  min-width: 30vw;
   gap: 26px;
   /* Chrome, Safari, Edge, Opera */
   /* Firefox */
@@ -73,4 +74,84 @@
   margin-bottom: 10px;
   font-weight: 500;
   font-size: 18px;
+}
+.Main .CV > * {
+  padding: clamp(0.5rem, 4vw, 1rem);
+}
+.Main .CV {
+  display: grid;
+  width: clamp(42mm, 45vw, 210mm);
+  aspect-ratio: 210/297;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 7fr;
+  position: sticky;
+  top: 10px;
+}
+@media screen and (orientation: portrait) {
+  .Main .CV {
+    width: 100%;
+    position: static;
+  }
+}
+.Main .CV p {
+  margin-bottom: 0;
+}
+.Main .CV .title {
+  border-bottom: 1px solid rgb(162, 162, 162);
+  color: #333e50;
+  font-size: clamp(0.2rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  margin-bottom: clamp(0.2rem, 1.2vw, 0.4rem);
+}
+.Main .CV .sideTitle {
+  font-size: clamp(0.2rem, 1.8vw, 1rem);
+  font-weight: 550;
+}
+.Main .CV .info {
+  font-size: clamp(0.2rem, 1.8vw, 1rem);
+}
+.Main .CV .arrayData {
+  display: flex;
+  justify-content: space-between;
+  padding-right: clamp(1.5rem, 6vw, 3rem);
+}
+.Main .CV .upper {
+  grid-column: span 2/auto;
+  background-color: #333e50;
+  color: white;
+}
+.Main .CV .upper .name {
+  font-size: clamp(1rem, 6vw, 2.3rem);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.Main .CV .upper .job {
+  font-size: clamp(0.6rem, 9vw, 1.2rem);
+  margin-bottom: 0;
+}
+.Main .CV .main {
+  background-color: rgb(233, 230, 230);
+}
+.Main .CV .main .myDiv {
+  margin-bottom: clamp(0.35rem, 2.5vw, 0.9rem);
+}
+.Main .CV .main .descriptionCv {
+  font-size: clamp(0.2rem, 1.8vw, 1rem);
+  font-style: italic;
+}
+.Main .CV .main .descriptionCv p {
+  font-style: normal;
+}
+.Main .CV .main .educationCV,
+.Main .CV .main .experienceCV {
+  display: flex;
+  gap: clamp(0.5rem, 3vw, 1.1rem);
+  flex-direction: column;
+}
+.Main .CV .extra {
+  background-color: rgb(192, 191, 191);
+}
+.Main .CV .extra .myDiv {
+  margin-bottom: clamp(0.5rem, 3vw, 1.1rem);
 }/*# sourceMappingURL=Main.css.map */
