@@ -1,9 +1,8 @@
-import { Component } from "react";
+import React from 'react';
 import "../styles/Footer.css";
 import logo from "../Images/github-mark-white.png";
 
-export default class Footer extends Component {
-  render() {
+export default function Footer() {
     return (
       <div className="Footer">
         <div className="text">Copyright © mohammedalgamal</div>
@@ -13,4 +12,3 @@ export default class Footer extends Component {
       </div>
     );
   }
-}

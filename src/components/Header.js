@@ -1,8 +1,6 @@
-import { Component } from "react";
+import React from 'react';
 import "../styles/Header.css";
 
-export default class Header extends Component {
-  render() {
-    return <div className="Header">CV Maker</div>;
-  }
+export default function Header() {
+  return <div className="Header">CV Maker</div>;
 }
