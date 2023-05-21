@@ -1,14 +1,13 @@
-import { Component } from "react";
+import React from 'react';
 
-export default class Experience extends Component {
-  render() {
+export default function Experience(props) {
     return (
       <div className="Experience myBox">
         <input
           type="text"
           placeholder="Position"
           onChange={(e) => {
-            this.props.handleExperienceChange(e, this.props.id, "position");
+            props.handleExperienceChange(e, props.id, "position");
           }}
         ></input>
 
@@ -16,7 +15,7 @@ export default class Experience extends Component {
           type="text"
           placeholder="Company"
           onChange={(e) => {
-            this.props.handleExperienceChange(e, this.props.id, "company");
+            props.handleExperienceChange(e, props.id, "company");
           }}
         ></input>
 
@@ -24,7 +23,7 @@ export default class Experience extends Component {
           type="text"
           placeholder="City"
           onChange={(e) => {
-            this.props.handleExperienceChange(e, this.props.id, "city");
+            props.handleExperienceChange(e, props.id, "city");
           }}
         ></input>
 
@@ -32,7 +31,7 @@ export default class Experience extends Component {
           type="text"
           placeholder="Start date"
           onChange={(e) => {
-            this.props.handleExperienceChange(e, this.props.id, "startDate");
+            props.handleExperienceChange(e, props.id, "startDate");
           }}
         ></input>
 
@@ -40,14 +39,14 @@ export default class Experience extends Component {
           type="text"
           placeholder="End date"
           onChange={(e) => {
-            this.props.handleExperienceChange(e, this.props.id, "endDate");
+            props.handleExperienceChange(e, props.id, "endDate");
           }}
         ></input>
 
         <button
           className="generalBtn deleteBtn"
           onClick={() => {
-            this.props.deleteExperienceObject(this.props.id);
+            props.deleteExperienceObject(props.id);
           }}
         >
           Delete Experience
@@ -55,4 +54,3 @@ export default class Experience extends Component {
       </div>
     );
   }
-}
