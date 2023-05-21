@@ -1,17 +1,11 @@
-import { Component } from "react";
+import React from 'react';
 import Experience from "./Experience";
 import Education from "./Education";
 
-export default class Data extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const generalData = this.props.generalData;
-    const experiencesUtils = this.props.experiencesUtils;
-    const educationsUtils = this.props.educationsUtils;
+export default function Data(props) {
+    const generalData = props.generalData;
+    const experiencesUtils = props.experiencesUtils;
+    const educationsUtils = props.educationsUtils;
 
     return (
       <div className="Data">
@@ -23,7 +17,7 @@ export default class Data extends Component {
               placeholder="First name"
               value={generalData[0]}
               onChange={(e) => {
-                this.props.changeData(e, "firstName");
+                props.changeData(e, "firstName");
               }}
             ></input>
 
@@ -32,7 +26,7 @@ export default class Data extends Component {
               placeholder="Last name"
               value={generalData[1]}
               onChange={(e) => {
-                this.props.changeData(e, "lastName");
+                props.changeData(e, "lastName");
               }}
             ></input>
 
@@ -41,7 +35,7 @@ export default class Data extends Component {
               placeholder="Job title"
               value={generalData[2]}
               onChange={(e) => {
-                this.props.changeData(e, "jobTitle");
+                props.changeData(e, "jobTitle");
               }}
             ></input>
 
@@ -50,7 +44,7 @@ export default class Data extends Component {
               placeholder="Address"
               value={generalData[3]}
               onChange={(e) => {
-                this.props.changeData(e, "address");
+                props.changeData(e, "address");
               }}
             ></input>
 
@@ -59,7 +53,7 @@ export default class Data extends Component {
               placeholder="Phone number"
               value={generalData[4]}
               onChange={(e) => {
-                this.props.changeData(e, "phoneNumber");
+                props.changeData(e, "phoneNumber");
               }}
             ></input>
 
@@ -68,7 +62,7 @@ export default class Data extends Component {
               placeholder="Email"
               value={generalData[5]}
               onChange={(e) => {
-                this.props.changeData(e, "email");
+                props.changeData(e, "email");
               }}
             ></input>
 
@@ -76,7 +70,7 @@ export default class Data extends Component {
               placeholder="Description"
               value={generalData[6]}
               onChange={(e) => {
-                this.props.changeData(e, "description");
+                props.changeData(e, "description");
               }}
             ></textarea>
           </div>
@@ -134,7 +128,7 @@ export default class Data extends Component {
           <button
             className="generalBtn resetBtn"
             onClick={() => {
-              this.props.handleResetButton();
+              props.handleResetButton();
             }}
           >
             Reset
@@ -143,4 +137,3 @@ export default class Data extends Component {
       </div>
     );
   }
-}

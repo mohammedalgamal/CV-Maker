@@ -1,7 +1,6 @@
-import { Component } from "react";
+import React from 'react';
 
-export default class CV extends Component {
-  render() {
+export default function CV(props) {
     const {
       firstName,
       lastName,
@@ -12,7 +11,7 @@ export default class CV extends Component {
       description,
       experiences,
       educations,
-    } = this.props;
+    } = props;
 
     return (
       <div className="CV">
@@ -99,5 +98,4 @@ export default class CV extends Component {
         </div>
       </div>
     );
-  }
-}
+  };
