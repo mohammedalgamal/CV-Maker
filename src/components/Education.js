@@ -1,14 +1,13 @@
-import { Component } from "react";
+import React from 'react';
 
-export default class Education extends Component {
-  render() {
+export default function Education(props) {
     return (
       <div className="Education myBox">
         <input
           type="text"
           placeholder="University"
           onChange={(e) => {
-            this.props.handleEducationChange(e, this.props.id, "university");
+            props.handleEducationChange(e, props.id, "university");
           }}
         ></input>
 
@@ -16,7 +15,7 @@ export default class Education extends Component {
           type="text"
           placeholder="Degree"
           onChange={(e) => {
-            this.props.handleEducationChange(e, this.props.id, "degree");
+            props.handleEducationChange(e, props.id, "degree");
           }}
         ></input>
 
@@ -24,7 +23,7 @@ export default class Education extends Component {
           type="text"
           placeholder="City"
           onChange={(e) => {
-            this.props.handleEducationChange(e, this.props.id, "city");
+            props.handleEducationChange(e, props.id, "city");
           }}
         ></input>
 
@@ -32,7 +31,7 @@ export default class Education extends Component {
           type="text"
           placeholder="Subject"
           onChange={(e) => {
-            this.props.handleEducationChange(e, this.props.id, "subject");
+            props.handleEducationChange(e, props.id, "subject");
           }}
         ></input>
 
@@ -40,7 +39,7 @@ export default class Education extends Component {
           type="text"
           placeholder="Start date"
           onChange={(e) => {
-            this.props.handleEducationChange(e, this.props.id, "startDate");
+            props.handleEducationChange(e, props.id, "startDate");
           }}
         ></input>
 
@@ -48,19 +47,18 @@ export default class Education extends Component {
           type="text"
           placeholder="End date"
           onChange={(e) => {
-            this.props.handleEducationChange(e, this.props.id, "endDate");
+            props.handleEducationChange(e, props.id, "endDate");
           }}
         ></input>
 
         <button
           className="generalBtn deleteBtn"
           onClick={() => {
-            this.props.deleteEducationObject(this.props.id);
+            props.deleteEducationObject(props.id);
           }}
         >
           Delete Education
         </button>
       </div>
     );
-  }
-}
+};
