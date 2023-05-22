@@ -3,10 +3,6 @@ import Experience from "./Experience";
 import Education from "./Education";
 
 export default function Data(props) {
-    const generalData = props.generalData;
-    const experiencesUtils = props.experiencesUtils;
-    const educationsUtils = props.educationsUtils;
-
     return (
       <div className="Data">
         <div className="General">
@@ -15,7 +11,7 @@ export default function Data(props) {
             <input
               type="text"
               placeholder="First name"
-              value={generalData[0]}
+              value={props.firstName}
               onChange={(e) => {
                 props.changeData(e, "firstName");
               }}
@@ -24,7 +20,7 @@ export default function Data(props) {
             <input
               type="text"
               placeholder="Last name"
-              value={generalData[1]}
+              value={props.lastName}
               onChange={(e) => {
                 props.changeData(e, "lastName");
               }}
@@ -33,7 +29,7 @@ export default function Data(props) {
             <input
               type="text"
               placeholder="Job title"
-              value={generalData[2]}
+              value={props.jobTitle}
               onChange={(e) => {
                 props.changeData(e, "jobTitle");
               }}
@@ -42,7 +38,7 @@ export default function Data(props) {
             <input
               type="text"
               placeholder="Address"
-              value={generalData[3]}
+              value={props.address}
               onChange={(e) => {
                 props.changeData(e, "address");
               }}
@@ -51,7 +47,7 @@ export default function Data(props) {
             <input
               type="number"
               placeholder="Phone number"
-              value={generalData[4]}
+              value={props.phoneNumber}
               onChange={(e) => {
                 props.changeData(e, "phoneNumber");
               }}
@@ -60,7 +56,7 @@ export default function Data(props) {
             <input
               type="email"
               placeholder="Email"
-              value={generalData[5]}
+              value={props.email}
               onChange={(e) => {
                 props.changeData(e, "email");
               }}
@@ -68,7 +64,7 @@ export default function Data(props) {
 
             <textarea
               placeholder="Description"
-              value={generalData[6]}
+              value={props.description}
               onChange={(e) => {
                 props.changeData(e, "description");
               }}
@@ -79,20 +75,20 @@ export default function Data(props) {
         <div className="Experiences">
           <p className="title">Experience</p>
           <div className="ExperienceContent myBox">
-            {experiencesUtils[0].map((exp) => {
+            {props.experiences.map((exp) => {
               return (
                 <Experience
                   key={exp.id}
                   id={exp.id}
-                  handleExperienceChange={experiencesUtils[2]}
-                  deleteExperienceObject={experiencesUtils[3]}
+                  handleExperienceChange={props.handleExperienceChange}
+                  deleteExperienceObject={props.deleteExperienceObject}
                 />
               );
             })}
             <button
               className="addExperience generalBtn"
               onClick={() => {
-                experiencesUtils[1]();
+                props.addExperienceObject();
               }}
             >
               Add experience
@@ -103,20 +99,20 @@ export default function Data(props) {
         <div className="Educations">
           <p className="title">Education</p>
           <div className="EducationContent myBox">
-            {educationsUtils[0].map((exp) => {
+            {props.educations.map((exp) => {
               return (
                 <Education
                   key={exp.id}
                   id={exp.id}
-                  handleEducationChange={educationsUtils[2]}
-                  deleteEducationObject={educationsUtils[3]}
+                  handleEducationChange={props.handleEducationChange}
+                  deleteEducationObject={props.deleteEducationObject}
                 />
               );
             })}
             <button
               className="addEducation generalBtn"
               onClick={() => {
-                educationsUtils[1]();
+                props.addEducationObject();
               }}
             >
               Add education

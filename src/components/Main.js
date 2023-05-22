@@ -1,88 +1,32 @@
-import { Component } from "react";
+import { useState } from "react";
+import React from 'react';
 import Data from "./Data";
 import CV from "./CV";
 import uniqid from "uniqid";
 import "../styles/Main.css";
 
-export default class Main extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      firstName: "",
-      lastName: "",
-      jobTitle: "",
-      address: "",
-      phoneNumber: "",
-      email: "",
-      description: "",
-      experiences: [
-        {
-          id: uniqid(),
-          position: "",
-          company: "",
-          city: "",
-          startDate: "",
-          endDate: "",
-        },
-      ],
-      educations: [
-        {
-          id: uniqid(),
-          university: "",
-          degree: "",
-          city: "",
-          subject: "",
-          startDate: "",
-          endDate: "",
-        },
-      ],
-    };
-  }
-
-  changeData = (e, data) => {
-    this.setState({
-      [data]: e.target.value,
-    });
-  };
-
-  addExperienceObject = () => {
-    this.setState({
-      experiences: this.state.experiences.concat({
+export default function Main() {
+  const initialState = 
+  {
+    firstName: "",
+    lastName: "",
+    jobTitle: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+    description: "",
+    experiences: [
+      {
         id: uniqid(),
         position: "",
         company: "",
         city: "",
         startDate: "",
         endDate: "",
-      }),
-    });
-  };
-
-  deleteExperienceObject = (id) => {
-    this.setState({
-      experiences: this.state.experiences.filter(
-        (experience) => experience.id !== id
-      ),
-    });
-  };
-
-  handleExperienceChange = (e, id, data) => {
-    this.setState({
-      experiences: this.state.experiences.map((experience) => {
-        if (experience.id === id) {
-          experience[data] = e.target.value;
-          return experience;
-        }
-
-        return experience;
-      }),
-    });
-  };
-
-  addEducationObject = () => {
-    this.setState({
-      educations: this.state.educations.concat({
+      },
+    ],
+    educations: [
+      {
         id: uniqid(),
         university: "",
         degree: "",
@@ -90,127 +34,153 @@ export default class Main extends Component {
         subject: "",
         startDate: "",
         endDate: "",
-      }),
+      },
+    ],
+  }
+  
+  const [stateData, setStateData] = useState(initialState);
+
+  // General Info change function
+  const changeData = (e, data) => {
+    setStateData((prevState) => {
+      return {
+      ...prevState,
+      [data]: e.target.value,
+  }})};
+
+  // Experience Info utils
+  const addExperienceObject = () => {
+    setStateData((prevState) => {
+      return {
+        ...prevState,
+        experiences: prevState.experiences.concat(
+          {
+            id: uniqid(),
+            position: "",
+            company: "",
+            city: "",
+            startDate: "",
+            endDate: "",
+      })}
     });
   };
 
-  deleteEducationObject = (id) => {
-    this.setState({
-      educations: this.state.educations.filter(
-        (education) => education.id !== id
-      ),
+  const handleExperienceChange = (e, id, data) => {
+    setStateData((prevState) => {
+      return {
+        ...prevState,
+        experiences: prevState.experiences.map((experience) => {
+          if (experience.id === id) {
+            experience[data] = e.target.value;
+            return experience;
+          }
+          return experience;
+        })
+      }
+    })
+  };
+
+  const deleteExperienceObject = (id) => {
+    setStateData((prevState) => {
+      return {
+        ...prevState,
+        experiences: prevState.experiences.filter(
+          (experience) => experience.id !== id
+    )}});
+  };
+
+  // Education Info utils
+  const addEducationObject = () => {
+    setStateData((prevState) => {
+      return {
+        ...prevState,
+        educations: prevState.educations.concat(
+          {
+            id: uniqid(),
+            university: "",
+            degree: "",
+            city: "",
+            subject: "",
+            startDate: "",
+            endDate: "",
+      })}
     });
   };
 
-  handleEducationChange = (e, id, data) => {
-    this.setState({
-      educations: this.state.educations.map((education) => {
-        if (education.id === id) {
-          education[data] = e.target.value;
+  const handleEducationChange = (e, id, data) => {
+    setStateData((prevState) => {
+      return {
+        ...prevState,
+        educations: prevState.educations.map((education) => {
+          if (education.id === id) {
+            education[data] = e.target.value;
+            return education;
+          }
           return education;
-        }
-
-        return education;
-      }),
-    });
+        })
+      }
+    })
   };
 
-  handlePDFButton = () => {
+  const deleteEducationObject = (id) => {
+    setStateData((prevState) => {
+      return {
+        ...prevState,
+        educations: prevState.educations.filter(
+          (education) => education.id !== id
+    )}});
+  };
+
+  // Buttons functions
+  const handlePDFButton = () => {
     return "";
   };
 
-  handleResetButton = () => {
-    this.setState({
-      firstName: "",
-      lastName: "",
-      jobTitle: "",
-      address: "",
-      phoneNumber: "",
-      email: "",
-      description: "",
-      experiences: [
-        {
-          id: uniqid(),
-          position: "",
-          company: "",
-          city: "",
-          startDate: "",
-          endDate: "",
-        },
-      ],
-      educations: [
-        {
-          id: uniqid(),
-          university: "",
-          degree: "",
-          city: "",
-          subject: "",
-          startDate: "",
-          endDate: "",
-        },
-      ],
-    });
+  const handleResetButton = () => {
+    setStateData(initialState);
   };
 
-  render() {
-    const {
-      firstName,
-      lastName,
-      jobTitle,
-      address,
-      phoneNumber,
-      email,
-      description,
-      experiences,
-      educations,
-    } = this.state;
 
-    const generalData = [
-      firstName,
-      lastName,
-      jobTitle,
-      address,
-      phoneNumber,
-      email,
-      description,
-    ];
-
-    const experiencesUtils = [
-      experiences,
-      this.addExperienceObject,
-      this.handleExperienceChange,
-      this.deleteExperienceObject,
-    ];
-
-    const educationsUtils = [
-      educations,
-      this.addEducationObject,
-      this.handleEducationChange,
-      this.deleteEducationObject,
-    ];
-
-    return (
+  return (
       <div className="Main">
         <Data
-          generalData={generalData}
-          experiencesUtils={experiencesUtils}
-          educationsUtils={educationsUtils}
-          changeData={this.changeData}
-          handleResetButton={this.handleResetButton}
-          handlePDFButton={this.handlePDFButton}
+          // General Info
+          firstName={stateData.firstName}
+          lastName={stateData.lastName}
+          jobTitle={stateData.jobTitle}
+          address={stateData.address}
+          phoneNumber={stateData.phoneNumber}
+          email={stateData.email}
+          description={stateData.description}
+          changeData={changeData}
+          
+          // Experience Info
+          experiences={stateData.experiences}
+          addExperienceObject={addExperienceObject}
+          handleExperienceChange={handleExperienceChange}
+          deleteExperienceObject={deleteExperienceObject}
+
+          // Education Info
+          educations={stateData.educations}
+          addEducationObject={addEducationObject}
+          handleEducationChange={handleEducationChange}
+          deleteEducationObject={deleteEducationObject}
+
+          // Buttons Functions
+          handlePDFButton={handlePDFButton}  
+          handleResetButton={handleResetButton}
         ></Data>
         <CV
-          firstName={firstName}
-          lastName={lastName}
-          jobTitle={jobTitle}
-          address={address}
-          phoneNumber={phoneNumber}
-          email={email}
-          description={description}
-          experiences={experiences}
-          educations={educations}
+          firstName={stateData.firstName}
+          lastName={stateData.lastName}
+          jobTitle={stateData.jobTitle}
+          address={stateData.address}
+          phoneNumber={stateData.phoneNumber}
+          email={stateData.email}
+          description={stateData.description}
+          experiences={stateData.experiences}
+          educations={stateData.educations}
         ></CV>
       </div>
-    );
-  }
+  );
 }
